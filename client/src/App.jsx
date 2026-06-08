@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { io } from "socket.io-client";
 
 // ─── CONFIG ────────────────────────────────────────────────────────────────
-const SERVER_URL = "https://swiftdrop-production-f491.up.railway.app";
+const SERVER_URL = "http://localhost:3001";
 const CHUNK_SIZE = 64 * 1024; // 64 KB
 const MAX_FILE_SIZE = 500 * 1024 * 1024; // 500 MB
 
@@ -221,12 +221,6 @@ export default function App() {
   // Init socket ONCE
   useEffect(() => {
     const socket = io(SERVER_URL, { transports: ["websocket", "polling"] });
-    socket.on("peer-joined", () => {
-  console.log("PEER JOINED RECEIVED"); // add this
-  addLog("Receiver joined! Starting WebRTC handshake...", "info");
-  setPhase("connecting");
-  startWebRTC(true);
-});
     socketRef.current = socket;
 
     socket.on("connect", () => addLog("Connected to signaling server", "info"));
