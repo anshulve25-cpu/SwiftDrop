@@ -20,6 +20,16 @@ const io = new Server(server, {
 
 // Track rooms: roomId -> Set of socket IDs
 const rooms = new Map();
+app.get('/', (req, res) => {
+  res.send('SwiftDrop Signaling Server is running');
+});
+
+app.get('/health', (req, res) => {
+  res.json({
+    status: 'ok',
+    rooms: rooms.size
+  });
+});
 
 io.on('connection', (socket) => {
   console.log(`[+] Connected: ${socket.id}`);
