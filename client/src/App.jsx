@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { io } from "socket.io-client";
 
 // ─── CONFIG ────────────────────────────────────────────────────────────────
-const SERVER_URL = "http://localhost:3001";
+const SERVER_URL = "https://swiftdrop-production-7cf9.up.railway.app";
 const CHUNK_SIZE = 64 * 1024; // 64 KB
 const MAX_FILE_SIZE = 500 * 1024 * 1024; // 500 MB
 
