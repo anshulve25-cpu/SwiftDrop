@@ -82,7 +82,7 @@ npm run dev
 4. Socket.IO exchanges signaling data between peers.
 5. WebRTC establishes a direct connection.
 6. Files are transferred directly between devices.
-7. No file data is stored on any server.
+7. No file data is stored on any of the server.
 
 ## 🎯 Use Cases
 
